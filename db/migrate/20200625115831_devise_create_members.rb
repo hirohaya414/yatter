@@ -34,7 +34,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
 
       t.string :name, null: false
       t.integer :school_year, null: false, default: 0
-      t.text :profile_image_id
+      t.string :profile_image_id
       t.boolean :is_deleted, null: false, default: false
       t.timestamps null: false
     end
