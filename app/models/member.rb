@@ -9,4 +9,6 @@ class Member < ApplicationRecord
   	validates :name
   	validates :school_year
   end
+
+  has_many :articles, dependent: :destroy
 end

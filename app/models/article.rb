@@ -5,4 +5,6 @@ class Article < ApplicationRecord
 	  	validates :member_id
 	  	validates :category_id
 	end
+
+	belongs_to :member
 end
