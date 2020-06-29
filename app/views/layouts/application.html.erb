@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Yatter</title>
+    <script src="https://kit.fontawesome.com/34f3987b2a.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,64 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top">
+      <div class="container">
+        <nav class="nav navbar-brand">
+          <span>Yatter</span>
+        </nav>
+        <nav>
+          <ul class="nav">
+
+            <% if member_signed_in? %>
+              <li>
+                <%= link_to root_path do %>
+                <i class="fas fa-home"></i> トップページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to member_path(current_member) do %>
+                <i class="fas fa-user"></i> マイページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_article_path do %>
+                <i class="fas fa-pen-nib"></i> 記事を書く
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_member_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i> ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to root_path do %>
+                <i class="fas fa-home"></i> トップページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to about_path do %>
+                <i class="fas fa-shield-alt"></i> 始めての方はこちら
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_member_registration_path do %>
+                <i class="fas fa-user-plus"></i> メンバー登録する
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_member_session_path do %>
+                <i class="fas fa-sign-in-alt"></i> ログイン
+                <% end %>
+              </li>
+            <% end %>
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
