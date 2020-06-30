@@ -74,6 +74,7 @@ gem "refile-mini_magick"
 gem 'devise'
 gem 'enum_help'
 gem 'rails-i18n', '~> 5.1'
+gem 'activeadmin'
 
 gem 'dotenv-rails'
 group :production do
