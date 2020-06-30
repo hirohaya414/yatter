@@ -1,0 +1,10 @@
+ja:
+  enums:
+    member:
+      school_years:
+        middle: 中学生
+        first_year: 高校１年生
+        second_year: 高校２年生
+        third_year: 高校３年生
+        others: その他
+

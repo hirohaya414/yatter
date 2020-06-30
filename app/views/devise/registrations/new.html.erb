@@ -9,8 +9,8 @@
   </div>
 <!-- ラジオボタンに修正する -->
   <div class="field">
-    <%= f.label :shool_year %><br />
-    <%= f.number_field :school_year %>
+    <%= f.label :school_year %><br />
+    <%= f.select :school_year, Member.school_years.keys.map {|k| [I18n.t("enums.member.school_years.#{k}"), k]} %>
   </div>
 
   <div class="field">
@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation　%><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
