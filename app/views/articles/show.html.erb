@@ -9,8 +9,8 @@
   <%= @article.body %>
 </p>
 <p>
-  <strong>Title:</strong>
-  <%= @article.category_id %>
+  <strong>Category:</strong>
+  <%= @article.category.name %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |

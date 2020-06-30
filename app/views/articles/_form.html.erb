@@ -23,7 +23,9 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.number_field :category_id %>
+      <%= form.collection_radio_buttons(:category_id, Category.all, :id, :name) do |category| %>
+        <%= category.label {category.radio_button + category.text} %>
+      <% end %>
   </div>
 
   <div class="actions">
