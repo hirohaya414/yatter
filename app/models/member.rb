@@ -12,6 +12,7 @@ class Member < ApplicationRecord
 
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   enum school_year: {
     # middle=中学、first_year=高校１年、second_year=高校２年、third_year=高校３年、others=その他
