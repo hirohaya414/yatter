@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 		patch '/hide' => 'members#hide', on: :member
 	end
 
-	resources :articles
+	resources :articles do
+		resources :comments, only: [:create, :destroy]
+	end
+
 	get '/about' => 'home#about'
 	root 'home#top'
 end

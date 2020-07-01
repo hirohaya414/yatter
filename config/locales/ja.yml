@@ -8,3 +8,6 @@ ja:
         third_year: 高校３年生
         others: その他
 
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
