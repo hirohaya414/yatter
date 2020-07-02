@@ -1,2 +1,25 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<h2>プロフィール情報</h2>
+
+  <div class="field">
+  	プロフィール画像<br />
+	<%= attachment_image_tag @member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+  </div>
+
+  <div class="field">
+    名前<br />
+    <%= @member.name %>
+  </div>
+
+  <div class="field">
+    学年<br />
+    <%= @member.school_year %>
+  </div>
+
+  <div class="field">
+    メールアドレス<br />
+    <%= @member.email %>
+  </div>
+
+<%= link_to 'Edit', edit_member_path(current_member) %> |
+<%= link_to 'Top', root_path %> |
+<%= link_to 'Index', members_path %>

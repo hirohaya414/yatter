@@ -1,2 +1,42 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<h2>プロフィール編集</h2>
+
+<%= form_for(@member) do |f| %>
+
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> error occurrence</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :profile_image %><br />
+    <%= attachment_image_tag @member, :profile_image, size: "100x100", class: "rounded-circle", fallback: "no_image.jpg"%><br />
+    <%= f.attachment_field :profile_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :school_year %><br />
+    <%= f.select :school_year, Member.school_years.keys.map {|k| [I18n.t("enums.member.school_years.#{k}"), k]} %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
