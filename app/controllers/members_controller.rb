@@ -13,7 +13,7 @@ class MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      redirect_to member_path(@member)
+      redirect_to member_path(@member), warning: 'プロフィール情報を更新しました！'
     else
       render :edit
   end
@@ -26,8 +26,7 @@ class MembersController < ApplicationController
   	@member = Member.find(params[:id])
   	@member.update(is_deleted: true)
   	reset_session
-    flash[:notice] = 'ありがとうございました。またのご利用を心よりお待ちしております。'
-  	redirect_to root_path
+  	redirect_to root_path, info: 'ありがとうございました。またのご利用を心よりお待ちしております。'
   end
 
   private
