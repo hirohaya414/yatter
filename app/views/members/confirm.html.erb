@@ -1,2 +1,9 @@
-<h1>Members#confirm</h1>
-<p>Find me in app/views/members/confirm.html.erb</p>
+<h1 class="text-center">本当に退会しますか？</h1>
+
+<p class="text-center">退会されますと、記事の投稿やコメントができなくなります。<br />
+再度ご利用いただくには、メンバー登録が必要となります。</p>
+
+<div class="mx-auto" style="width: 328px;">
+	<%= link_to "やっぱり退会しない", member_path(current_member), class: "btn btn-default" %>
+	<%= link_to "それでも退会する", hide_member_path(current_member), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-default" %>
+</div>

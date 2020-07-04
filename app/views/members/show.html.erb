@@ -22,4 +22,8 @@
 
 <%= link_to 'Edit', edit_member_path(current_member) %> |
 <%= link_to 'Top', root_path %> |
-<%= link_to 'Index', members_path %>
+<%= link_to 'Index', members_path %><br />
+
+<% if member_signed_in? && @member.id == current_member.id %>
+  <%= link_to '退会したい', confirm_members_path %>
+<% end %>
