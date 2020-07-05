@@ -56,15 +56,15 @@ ActiveRecord::Schema.define(version: 2020_07_01_070710) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false
-    t.integer "member_id"
-    t.integer "article_id"
+    t.integer "member_id", null: false
+    t.integer "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "article_id"
+    t.integer "member_id", null: false
+    t.integer "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
