@@ -60,6 +60,9 @@ ja:
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
 
   activerecord:
+    models:
+      member: メンバー
+      article: 記事
     attributes:
       member:
         name: 名前
@@ -68,6 +71,10 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+      article:
+        title: タイトル
+        body: 本文
+        category: カテゴリ
 
   enums:
     member:
