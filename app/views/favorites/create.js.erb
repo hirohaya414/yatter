@@ -1,0 +1,3 @@
+if (location.pathname == '/articles') {
+  $(".favorite_<%= @article.id %>").html("<%= j(render 'articles/favorite', article: @article ) %>")
+}

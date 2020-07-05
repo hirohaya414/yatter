@@ -1,0 +1,14 @@
+<% comments.each do |comment| %>
+<li>
+  <div>
+    <%= comment.member.name %>
+    <span><%= l comment.created_at %></span>
+  </div>
+    <div><%= comment.content %></div>
+    <% if comment.member == current_member %>
+      <div>
+        <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' } %>
+      </div>
+    <% end %>
+</li>
+<% end %>

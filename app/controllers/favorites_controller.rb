@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    article = Favorite.find(params[:article_id])
+    article = Article.find(params[:article_id])
     favorite = current_member.favorites.find_by(article_id: article.id)
     favorite.destroy
     redirect_to request.referer
