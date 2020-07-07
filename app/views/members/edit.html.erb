@@ -1,3 +1,5 @@
+<div class="row justify-content-center">
+<div class="col-auto">
 <h2>プロフィール編集</h2>
 
 <%= form_for(@member) do |f| %>
@@ -15,7 +17,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :profile_image %><br />
+    <%= f.label :profile_image, 'プロフィール画像' %><br />
     <%= attachment_image_tag @member, :profile_image, size: "100x100", class: "rounded-circle", fallback: "no_image.jpg"%><br />
     <%= f.attachment_field :profile_image %>
   </div>
@@ -30,13 +32,18 @@
     <%= f.select :school_year, Member.school_years.keys.map {|k| [I18n.t("enums.member.school_years.#{k}"), k]} %>
   </div>
 
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "更新する" %>
   </div>
 <% end %>
+
+  <div class="field">
+    <%= link_to '戻る', member_path %>
+  </div>
+</div>
+</div>

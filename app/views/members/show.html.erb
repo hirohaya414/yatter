@@ -1,29 +1,42 @@
-<h2>プロフィール情報</h2>
+<div class="row justify-content-center">
+<div class="col-auto">
+  <h2>プロフィール情報</h2>
 
-  <div class="field">
-  	プロフィール画像<br />
-	<%= attachment_image_tag @member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+    <div class="field">
+    	プロフィール画像<br />
+  	<%= attachment_image_tag @member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+    </div>
+
+    <div class="field">
+      名前<br />
+      <%= @member.name %>
+    </div>
+
+    <div class="field">
+      学年<br />
+      <%= @member.school_year %>
+    </div>
+
+    <div class="field">
+      メールアドレス<br />
+      <%= @member.email %>
+    </div>
+
+  <div class="row justify-content-center">
+    <div class="col-auto buttons">
+      <%= link_to '編集する', edit_member_path(current_member) %> |
+      <%= link_to 'トップページ', root_path %> |
+      <%= link_to '投稿一覧を見る', members_path %><br />
+    </div>
   </div>
 
-  <div class="field">
-    名前<br />
-    <%= @member.name %>
-  </div>
+  <% if member_signed_in? && @member.id == current_member.id %>
+    <div class="row justify-content-center">
+      <div class="col-auto btn">
+        <%= link_to '退会したい', confirm_members_path %>
+      </div>
+    </div>
+  <% end %>
 
-  <div class="field">
-    学年<br />
-    <%= @member.school_year %>
-  </div>
-
-  <div class="field">
-    メールアドレス<br />
-    <%= @member.email %>
-  </div>
-
-<%= link_to 'Edit', edit_member_path(current_member) %> |
-<%= link_to 'Top', root_path %> |
-<%= link_to 'Index', members_path %><br />
-
-<% if member_signed_in? && @member.id == current_member.id %>
-  <%= link_to '退会したい', confirm_members_path %>
-<% end %>
+</div>
+</div>
