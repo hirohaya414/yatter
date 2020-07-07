@@ -1,20 +1,18 @@
 <% if article.favorited_by?(current_member) %>
-<li>
-	<%= link_to article_favorites_path(article), method: :delete, remote: true do %>
-	  <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-	  <%= article.favorites.count %> いいね
-	<% end %>
-</li>
+
+　<%= link_to article_favorites_path(article), method: :delete, class: "no-underline", remote: true do %>
+  　 <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= article.favorites.count %>
+  <% end %>
+
 <% else %>
-<li>
-	<%= link_to article_favorites_path(article), method: :post, remote: true do %>
-	  <i class="far fa-heart" aria-hidden="true"></i>
-	  <%= article.favorites.count %> いいね
-	<% end %>
-</li>
+
+  <%= link_to article_favorites_path(article), method: :post, class: "no-underline", remote: true do %>
+	<i class="far fa-heart" aria-hidden="true"></i>
+	<%= article.favorites.count %>
+  <% end %>
+
 <% end %>
 
-<li>
-	<i class="fas fa-comment"></i>
-	<%= article.comments.count %></a>
- </li>
+<i class="fas fa-comment"></i>
+<%= article.comments.count %>

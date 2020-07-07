@@ -1,31 +1,59 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-<p>
-  <strong>Category:</strong>
-  <%= @article.category.name %>
-</p>
+<div class="row justify-content-center">
+<div class="col-6 article-content">
+  <span>記事詳細</span>
+  <div class="field">
+    <p>
+      <strong>カテゴリ:</strong>
+      <%= @article.category.name %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <strong>タイトル:</strong><br/>
+      <%= @article.title %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <strong>本文:</strong><br/>
+      <%= @article.body %>
+    </p>
+  </div>
+  <div class="field">
+    <%= attachment_image_tag @article.member, :profile_image, size: "50x50", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+  </div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+  <div class="field">
+    <% if member_signed_in? && @article.member.id == current_member.id %>
+  　　<%= link_to '編集する', edit_article_path(@article) %>
+    <% end %>
 
-<ul class="favorite_<%= @article.id %>">
-  <%= render 'favorite', article: @article %>
-</ul>
+    <% if member_signed_in? %>
+      <div class="favorite_<%= @article.id %>">
+        <%= render 'favorite', article: @article %>
+      </div>
+    <% end %>
+  </div>
 
-<h2><%= @article.comments.count %>件コメント</h2>
+  <div class="comment-index">
+    <h4><%= @article.comments.count %>件のコメント</h4>
 
-<ol class="comment_<%= @article.id %>">
-  <%= render 'comment', comments: @article.comments %>
-</ol>
+    <ol class="comment_<%= @article.id %>">
+      <%= render 'comment', comments: @article.comments %>
+    </ol>
+  </div>
 
-<h3>コメント</h3>
-<%= form_with model:[@article, @comment], data: {remote: true} do |f| %>
-  <%= f.text_area :content, class: "form-control", placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
+  <h4>コメント</h4>
+  <%= form_with model:[@article, @comment], data: {remote: true} do |f| %>
+
+    <div class="field">
+      <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "コメントをここに" %>
+    </div>
+    <%= f.submit "コメントする" %>
+  <% end %>
+
+  <div class="field">
+    <%= link_to '一覧に戻る', articles_path %>
+  </div>
+</div>
+</div>

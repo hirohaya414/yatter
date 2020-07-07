@@ -1,14 +1,14 @@
 <% comments.each do |comment| %>
 <li>
   <div>
+    <%= attachment_image_tag comment.member, :profile_image, size: "50x50", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
     <%= comment.member.name %>
-    <span><%= l comment.created_at %></span>
-  </div>
-    <div><%= comment.content %></div>
+    <%= l comment.created_at %>
     <% if comment.member == current_member %>
-      <div>
-        <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' } %>
-      </div>
+      <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' } %>
     <% end %>
+  </div>
+
+  <div><%= comment.content %></div>
 </li>
 <% end %>

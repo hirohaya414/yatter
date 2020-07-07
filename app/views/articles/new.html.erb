@@ -1,5 +1,12 @@
-<h1>New Article</h1>
+<div class="row justify-content-center">
+<div class="col-auto article-content">
+  <span>新規記事</span>
 
-<%= render 'form', article: @article %>
+  <%= render 'form', article: @article %>
 
-<%= link_to 'Back', articles_path %>
+  <div class="field">
+	<%= link_to '記事一覧を見る', articles_path %>
+  </div>
+
+</div>
+</div>
