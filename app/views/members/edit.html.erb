@@ -8,7 +8,7 @@
     <div id="error_explanation">
       <h2><%= @member.errors.count %>件のエラーのためメンバーが保存できませんでした。</h2>
 
-      <ul>
+      <ul class="error_message">
       <% @member.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
