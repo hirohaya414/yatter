@@ -1,2 +1,83 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="main-visual">
+  <div class="main-visual-content">
+    <p class="main-visual-text1">
+    	ここは、
+    </p>
+    <p class="main-visual-text2">
+    	僕らのホームルーム。
+    </p>
+  </div>
+</div>
+
+<main class="clearfix">
+  <div class="headline">
+    <h1 class="text-center headline1">
+  	  <em>Introduction</em>
+    </h1>
+  </div>
+  <div class="intro-visual-content">
+    <div class="intro-visual-box">
+	  <p class="visual-text">
+	  	休校中、あの子も<br />
+	  	同じように悩んでいるかもしれない ––
+	  </p>
+	  <%= link_to 'もっと知る', about_path %>
+    </div>
+
+    <div class="intro-visual"></div>
+  </div>
+
+  <div class="headline">
+    <h1 class="text-center headline2">
+  	  <em>Category</em>
+    </h1>
+  </div>
+  <div class="category-visual-content">
+    <div class="category-visual en">
+    	<p><span>英語</span></p>
+    </div>
+    <div class="category-visual ma">
+    	<p><span>数学</span></p>
+    </div>
+    <div class="category-visual ja">
+    	<p><span>国語</span></p>
+    </div>
+    <div class="category-visual sc">
+    	<p><span>理科</span></p>
+    </div>
+    <div class="category-visual so">
+    	<p><span>地理歴史</span></p>
+    </div>
+    <div class="category-visual ci">
+    	<p><span>公民</spam></p>
+    	</div>
+    <div class="category-visual mo">
+    	<p><span>モチベーションアップ<br />コンテンツ</span></p>
+    </div>
+    <div class="category-visual ot">
+    	<p><span>その他<span></p>
+    	</div>
+  </div>
+
+   <div class="headline">
+    <h1 class="text-center headline3">
+  	  <em>Service</em>
+    </h1>
+  </div>
+  <div class="service-visual-content">
+  	<% if member_signed_in? %>
+  	  <%= link_to new_article_path, class: "no-underline" do %>
+  	    <div class="button">
+          <span>記事を書く</span>
+        </div>
+      <% end %>
+  	<% else %>
+  	  <%= link_to new_member_registration_path, class: "no-underline" do %>
+        <div class="button">
+          <span>メンバー登録</span>
+        </div>
+      <% end %>
+  	<% end %>
+
+  </div>
+</div>

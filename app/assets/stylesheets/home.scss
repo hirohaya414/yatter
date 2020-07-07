@@ -1,3 +1,154 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-visual {
+	width: 100%;
+	height: 741px;
+	padding: 50px;
+	margin-bottom: 10px;
+	background-image: url(image1.jpg);
+	background-size: cover;
+	background-position: center
+}
+
+.main-visual-content {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-start
+}
+
+.main-visual-text1 {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-size: 40px;
+	font-family: serif;
+	background-color: #fff;
+	margin-left: 10px
+}
+
+.main-visual-text2 {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	font-size: 40px;
+	font-family: serif;
+	background-color: #fff
+}
+
+.visual-text {
+	font-family: serif
+}
+
+.headline {
+	margin: 100px
+}
+
+.headline1 em {
+	background: linear-gradient(transparent 70%, #e3b3cd 70%)
+}
+
+.intro-visual-content {
+	display: flex;
+    justify-content: center
+}
+
+.intro-visual-box {
+	margin: 10px
+}
+
+.intro-visual {
+	width: 500px;
+	height: 333px;
+	margin: 10px;
+	background-image: url(image2.jpg);
+	background-size: cover;
+	background-position: center
+}
+
+.headline2 em {
+	background: linear-gradient(transparent 70%, #c6e0d5 70%)
+}
+
+.category-visual-content {
+	width: 100%;
+    flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+    justify-content: center
+}
+
+.category-visual {
+	flex-basis: 230px;
+	height: 400px;
+	margin: 10px;
+	padding: 10px;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-start
+}
+
+.category-visual p {
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+    font-size: 30px;
+	font-family: serif
+}
+
+p span {
+	background-color: #fff
+}
+
+.en {
+	background-image: url(image3.jpg)
+}
+
+.ma {
+	background-image: url(image4.jpg)
+}
+
+.ja {
+	background-image: url(image5.jpg)
+}
+
+.sc {
+	background-image: url(image6.jpg)
+}
+
+.so {
+	background-image: url(image7.jpg)
+}
+
+.ci {
+	background-image: url(image8.jpg)
+}
+
+.mo {
+	background-image: url(image9.jpg)
+}
+
+.ot {
+	background-image: url(image10.jpg);
+}
+
+.headline3 em {
+	background: linear-gradient(transparent 70%, #82c0cd 70%)
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	min-height: 100px;
+	padding: 10px;
+	margin: 10px auto 150px;
+	color: #82c0cd;
+	border: thin solid #82c0cd
+}
+
+.button span {
+	font-family: serif;
+	font-size: 30px
+}
