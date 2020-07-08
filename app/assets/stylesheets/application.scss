@@ -57,11 +57,18 @@ footer {
 }
 
 .devise-main {
-	padding-left: 300px
+	padding-top: 50px;
+	display: flex;
+    justify-content: center
 }
 
 .devise-content {
-	width: 75%
+	width: 500px;
+	padding-left: 70px
+}
+
+.action {
+	margin-bottom: 10px
 }
 
 h2 span {
