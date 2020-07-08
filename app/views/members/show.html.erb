@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
-<div class="col-auto">
-  <h2>プロフィール情報</h2>
+<div class="col-auto prof">
+  <h2><span class="prof-underline">プロフィール情報</span></h2>
 
     <div class="field">
     	プロフィール画像<br />
@@ -24,15 +24,15 @@
 
   <div class="row justify-content-center">
     <div class="col-auto buttons">
-      <%= link_to '編集する', edit_member_path(current_member) %> |
-      <%= link_to 'トップページ', root_path %> |
-      <%= link_to '投稿一覧を見る', members_path %><br />
+      <%= link_to '記事一覧を見る', articles_path %> |
+      <%= link_to 'トップページへ', root_path %><br />
     </div>
   </div>
 
   <% if member_signed_in? && @member.id == current_member.id %>
     <div class="row justify-content-center">
       <div class="col-auto btn">
+        <%= link_to '編集する', edit_member_path(@member) %> |
         <%= link_to '退会したい', confirm_members_path %>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
-<div class="col-auto">
-<h2>プロフィール編集</h2>
+<div class="col-auto prof">
+<h2><span class="prof-underline">プロフィール編集</span></h2>
 
 <%= form_for(@member) do |f| %>
 
@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", size: 50 %>
   </div>
 
   <div class="field">
@@ -37,12 +37,12 @@
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
+  <div class="action">
     <%= f.submit "更新する" %>
   </div>
 <% end %>
 
-  <div class="field">
+  <div class="text-center field">
     <%= link_to '戻る', member_path %>
   </div>
 </div>

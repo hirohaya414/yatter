@@ -39,13 +39,20 @@
 .article-info {
 	width: 200px;
 	position: absolute;
-	top: 110px;
+	top: 100px;
 }
 
 .article-img {
 	position: absolute;
 	top: 0;
 	left: 50px
+}
+
+.article-name {
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis
 }
 
 .article-title {

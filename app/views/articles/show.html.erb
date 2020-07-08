@@ -3,12 +3,6 @@
   <span>記事詳細</span>
   <div class="field">
     <p>
-      <strong>カテゴリ:</strong>
-      <%= @article.category.name %>
-    </p>
-  </div>
-  <div class="field">
-    <p>
       <strong>タイトル:</strong><br/>
       <%= @article.title %>
     </p>
@@ -20,7 +14,15 @@
     </p>
   </div>
   <div class="field">
+    <p>
+      <strong>カテゴリ:</strong>
+      <%= @article.category.name %>
+    </p>
+  </div>
+  <div class="field">
+    <%= link_to member_path(@article.member) do %>
     <%= attachment_image_tag @article.member, :profile_image, size: "50x50", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -44,16 +46,18 @@
     </ol>
   </div>
 
-  <h4>コメント</h4>
-  <%= form_with model:[@article, @comment], data: {remote: true} do |f| %>
+  <% if member_signed_in? %>
+    <h4>コメント</h4>
+    <%= form_with model:[@article, @comment], data: {remote: true} do |f| %>
 
-    <div class="field">
-      <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "コメントをここに" %>
-    </div>
-    <%= f.submit "コメントする" %>
+      <div class="field">
+        <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "コメントをここに" %>
+      </div>
+      <%= f.submit "コメントする" %>
+    <% end %>
   <% end %>
 
-  <div class="field">
+  <div class="text-center field">
     <%= link_to '一覧に戻る', articles_path %>
   </div>
 </div>
