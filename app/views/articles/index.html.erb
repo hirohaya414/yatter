@@ -1,6 +1,27 @@
-<p id="notice"><%= notice %></p>
+<p class="article-content"><span class="article-index">記事一覧</span></h2>
 
-<h1>Articles</h1>
+<div class="main">
+  <div class="content">
+    <% @articles.each do |article| %>
+      <div class="box">
+      <%= link_to article, style: "color: black;" do %>
+        <div class="article-img">
+          <%= attachment_image_tag @member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+        </div>
+        <div class="article-info">
+          <span class="article-title"><%= article.title %></span>
+          <span class="article-body"><%= article.body %></span><br />
+          <span class="article-category"><%= article.category.name %></span>
+          <span class="article-favorite"><%= article.favorites.count %>いいね</span>
+          <span class="article-comment"><%= article.comments.count %>コメント</span>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 
 <table>
   <thead>
@@ -32,4 +53,4 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to '記事を書く', new_article_path %>

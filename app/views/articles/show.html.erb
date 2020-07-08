@@ -25,7 +25,8 @@
 
   <div class="field">
     <% if member_signed_in? && @article.member.id == current_member.id %>
-  　　<%= link_to '編集する', edit_article_path(@article) %>
+  　　<%= link_to '編集する', edit_article_path(@article) %> |
+     <%= link_to '削除する', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
 
     <% if member_signed_in? %>
