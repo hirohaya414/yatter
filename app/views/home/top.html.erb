@@ -17,11 +17,15 @@
   </div>
   <div class="intro-visual-content">
     <div class="intro-visual-box">
-	  <p class="visual-text">
-	  	休校中、あの子も<br />
-	  	同じように悩んでいるかもしれない ––
-	  </p>
-	  <%= link_to 'もっと知る', about_path %>
+      <p class="visual-text">
+      	休校中、あの子も<br />
+      	同じように悩んでいるかもしれない ––
+      </p>
+      <div class="intro-btn">
+        <%= link_to about_path, class: "no-underline", style: "color: #e3b3cd;" do %>
+        <span>もっと見る</span>
+        <% end %>
+      </div>
     </div>
 
     <div class="intro-visual"></div>
@@ -81,19 +85,50 @@
     </h1>
   </div>
   <div class="service-visual-content">
-  	<% if member_signed_in? %>
-  	  <%= link_to new_article_path, class: "no-underline" do %>
-  	    <div class="button">
-          <span>記事を書く</span>
-        </div>
-      <% end %>
-  	<% else %>
-  	  <%= link_to new_member_registration_path, class: "no-underline" do %>
-        <div class="button">
-          <span>メンバー登録</span>
-        </div>
-      <% end %>
-  	<% end %>
+    <div class="service-visual-text">
+      <p class="text-center">さぁ！知識をシェアしよう！</p>
+    </div>
 
+  	<% if member_signed_in? %>
+      <div class="buttons">
+        <div class="button">
+      	  <%= link_to new_article_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>記事を書く</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to articles_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>記事一覧を見る</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to "#", class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>トップへ戻る</span>
+          <% end %>
+        </div>
+      </div>
+  	<% else %>
+      <div class="buttons">
+        <div class="button">
+    	    <%= link_to new_member_registration_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>メンバー登録</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to articles_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>記事一覧を見る</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to "#", class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>トップへ戻る</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
