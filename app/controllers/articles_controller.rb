@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_member!, except: [:index, :show]
+  before_action :baria_member, only: [:edit]
+
   def index
     if params[:category_id]
       @category = Category.find(params[:category_id])
@@ -46,7 +49,16 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
     params.require(:article).permit(:title, :body, :category_id)
   end
+
+  def baria_member
+    article = Article.find(params[:id])
+    unless article.member == current_member
+      redirect_to articles_path
+    end
+   end
+
 end

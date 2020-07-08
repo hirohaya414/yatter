@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
-  def index
-  end
+  before_action :authenticate_member!, except: [:show]
+  before_action :baria_member, only: [:edit]
 
   def show
     @member = Member.find(params[:id])
@@ -34,4 +34,11 @@ class MembersController < ApplicationController
   def member_params
     params.require(:member).permit(:profile_image, :name, :school_year, :email)
   end
+
+  def baria_member
+    unless params[:id].to_i == current_member.id
+      redirect_to member_path(current_member)
+    end
+  end
+
 end
