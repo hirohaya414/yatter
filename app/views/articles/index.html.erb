@@ -1,4 +1,8 @@
-<p class="article-content"><span class="article-index">記事一覧</span></h2>
+<% if params[:category_id] %>
+  <p class="article-content"><span class="article-index">カテゴリ別 記事一覧(全<%= @articles.count %>件)</span></p>
+<% else %>
+  <p class="article-content"><span class="article-index">記事一覧(全<%= @articles.count %>件)</span></p>
+<% end %>
 
 <div class="main">
   <div class="content">
@@ -21,36 +25,8 @@
   </div>
 </div>
 
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Category</th>
-      <th>Favorite</th>
-      <th>Commment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= article.category.name %></td>
-        <td><%= article.favorites.count %></td>
-        <td><%= link_to "#{article.comments.count} コメント", article_path(article) %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to '記事を書く', new_article_path %>
+<div class="actions">
+  <%= link_to 'トップページへ', root_path %> |
+  <%= link_to '記事一覧を見る', articles_path %> |
+  <%= link_to '記事を書く', new_article_path %>
+</div>

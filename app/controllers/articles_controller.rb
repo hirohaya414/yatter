@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @articles = @category.articles
+    else
+      @articles = Article.all
+    end
   end
 
   def show
