@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_member!, except: [:index, :show]
-  before_action :baria_member, only: [:edit]
+  before_action :baria_member, only: [:edit, :update]
 
   def index
     if params[:category_id]
@@ -59,6 +59,6 @@ class ArticlesController < ApplicationController
     unless article.member == current_member
       redirect_to articles_path
     end
-   end
+  end
 
 end

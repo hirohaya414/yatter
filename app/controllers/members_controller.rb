@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_member!, except: [:show]
-  before_action :baria_member, only: [:edit]
+  before_action :baria_member, only: [:edit, :update]
 
   def show
     @member = Member.find(params[:id])
