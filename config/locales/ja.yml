@@ -61,24 +61,44 @@ ja:
 
   activerecord:
     models:
+      admin_user: 管理者
       member: メンバー
       article: 記事
+      category: カテゴリ
+      comment: コメント
     attributes:
       member:
+        profile_image_id: プロフィール画像
         name: 名前
         school_year: 学年
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+        is_deleted: 退会ステータス
+        created_at: 作成日時
+        updated_at: 更新日時
+        reset_password_token: パスワードリセットトークン
+        reset_password_sent_at: リセットパスワード送信日時
+        remember_created_at: ログイン情報記憶日時
+
       article:
         title: タイトル
         body: 本文
         category: カテゴリ
+        member: メンバー
+        created_at: 作成日時
+        updated_at: 更新日時
+
+      category:
+        name: 名前
+        is_invalid: 無効フラグ
+        created_at: 作成日時
+        updated_at: 更新日時
 
   enums:
     member:
-      school_years:
+      school_year:
         middle: 中学生
         first_year: 高校１年生
         second_year: 高校２年生

@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= form.label :body %><br />
-    <%= form.text_area :body, rows: 10, class: "form-control" %>
+    <%= form.text_area :body, size: "60x15", class: "form-control" %>
   </div>
 
   <div class="field">
@@ -27,7 +27,7 @@
       <% end %>
   </div>
 
-  <div class="actions">
+  <div class="action">
     <%= form.submit %>
   </div>
 <% end %>

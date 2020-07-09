@@ -29,7 +29,11 @@
 
   <div class="field">
     <%= f.label :school_year %><br />
-    <%= f.select :school_year, Member.school_years.keys.map {|k| [I18n.t("enums.member.school_years.#{k}"), k]} %>
+    <%= f.radio_button :school_year, :middle %> 中学生<br />
+    <%= f.radio_button :school_year, :first_year %> 高校１年生<br />
+    <%= f.radio_button :school_year, :second_year %> 高校２年生<br />
+    <%= f.radio_button :school_year, :third_year %> 高校３年生<br />
+    <%= f.radio_button :school_year, :others %> その他
   </div>
 
   <div class="field">
