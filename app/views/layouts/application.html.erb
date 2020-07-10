@@ -21,6 +21,7 @@
           <ul class="nav">
 
             <% if member_signed_in? %>
+              <li><p>ようこそ <%= current_member.name %> さん！</p></li>
               <li>
                 <%= link_to root_path, class: "no-underline", style: "color: black;" do %>
                 <i class="fas fa-home"></i> トップページ
@@ -29,6 +30,11 @@
               <li>
                 <%= link_to member_path(current_member), class: "no-underline", style: "color: black;" do %>
                 <i class="fas fa-user"></i> マイページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to articles_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-book-reader"></i> 記事を読む
                 <% end %>
               </li>
               <li>
@@ -50,6 +56,11 @@
               <li>
                 <%= link_to about_path, class: "no-underline", style: "color: black;" do %>
                 <i class="fas fa-shield-alt"></i> 始めての方はこちら
+                <% end %>
+              </li>
+              <li>
+                <%= link_to articles_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-book-reader"></i> 記事を読む
                 <% end %>
               </li>
               <li>

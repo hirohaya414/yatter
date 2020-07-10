@@ -27,14 +27,17 @@
 
   <div class="field">
     <% if member_signed_in? && @article.member.id == current_member.id %>
-  　　<%= link_to '編集する', edit_article_path(@article) %> |
-     <%= link_to '削除する', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to '編集する', edit_article_path(@article) %> |
+      <%= link_to '削除する', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
 
     <% if member_signed_in? %>
       <div class="favorite_<%= @article.id %>">
         <%= render 'favorite', article: @article %>
       </div>
+      <p>
+        <i class="far fa-comment"></i> <%= @article.comments.count %>
+      </p>
     <% end %>
   </div>
 
