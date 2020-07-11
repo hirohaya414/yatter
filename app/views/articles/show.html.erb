@@ -1,18 +1,63 @@
-<p id="notice"><%= notice %></p>
+<div class="row justify-content-center">
+<div class="col-8 article-content">
+  <span>記事詳細</span>
+  <div class="field">
+    <p>
+      <strong>タイトル:</strong><br/>
+      <%= @article.title %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <strong>本文:</strong><br/>
+      <%= @article.body %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <strong>カテゴリ:</strong>
+      <%= @article.category.name %>
+    </p>
+  </div>
+  <div class="field">
+    <%= link_to member_path(@article.member) do %>
+    <%= attachment_image_tag @article.member, :profile_image, size: "50x50", class: "rounded-circle", fallback: "no_image.jpg" %>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @article.category_id %>
-</p>
+  <div class="field">
+    <% if member_signed_in? && @article.member.id == current_member.id %>
+      <%= link_to '編集する', edit_article_path(@article) %> |
+      <%= link_to '削除する', @article, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+    <% end %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+    <% if member_signed_in? %>
+      <div class="favorite_<%= @article.id %>">
+        <%= render 'favorite', article: @article %>
+      </div>
+      <p class="comment_count_<%= @article.id %>">
+        <%= render 'comment_count', comments: @article.comments %>
+      </p>
+    <% end %>
+  </div>
 
+  <div class="comment-index comment_<%= @article.id %>">
+    <%= render 'comment', comments: @article.comments %>
+  </div>
+
+  <% if member_signed_in? %>
+    <h4>コメント</h4>
+    <%= form_with model:[@article, @comment], data: {remote: true} do |f| %>
+
+      <div class="field">
+        <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "コメントをここに" %>
+      </div>
+      <%= f.submit "コメントする" %>
+    <% end %>
+  <% end %>
+
+  <div class="text-center field">
+    <%= link_to '戻る', 'javascript:history.back()' %>
+  </div>
+</div>
+</div>

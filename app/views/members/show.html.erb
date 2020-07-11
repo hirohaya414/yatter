@@ -1,2 +1,66 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<div class="row justify-content-center">
+<div class="col-auto prof">
+  <h2><span class="prof-underline">プロフィール情報</span></h2>
+
+    <div class="field">
+    	プロフィール画像<br />
+  	<%= attachment_image_tag @member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+    </div>
+
+    <div class="field">
+      名前<br />
+      <%= @member.name %>
+    </div>
+
+    <div class="field">
+      学年<br />
+      <%= @member.school_year_i18n %>
+    </div>
+
+    <% if member_signed_in? && @member.id == current_member.id %>
+    <div class="field">
+      メールアドレス<br />
+      <%= @member.email %>
+    </div>
+    <% end %>
+
+  <div class="row justify-content-center">
+    <div class="col-auto buttons">
+      <%= link_to '戻る', 'javascript:history.back()' %> |
+      <%= link_to 'トップページへ', root_path %><br />
+    </div>
+  </div>
+
+  <% if member_signed_in? && @member.id == current_member.id %>
+    <div class="row justify-content-center">
+      <div class="col-auto btn">
+        <%= link_to '編集する', edit_member_path(@member) %> |
+        <%= link_to '退会したい', confirm_members_path %>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
+
+<p class="article-content"><span class="article-index">投稿一覧</span></p>
+<div class="main">
+  <div class="content">
+    <% @articles.each do |article| %>
+      <div class="box">
+      <%= link_to article, style: "color: black;" do %>
+        <div class="article-img">
+          <%= attachment_image_tag article.member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+        </div>
+        <div class="article-info">
+          <span class="article-name"><%= article.member.name %></span>
+          <span class="article-title"><%= article.title %></span>
+          <span class="article-body"><%= article.body %></span>
+          <span class="article-category"><%= article.category.name %></span>
+          <span class="article-favorite"><%= article.favorites.count %>いいね</span>
+          <span class="article-comment"><%= article.comments.count %>コメント</span>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

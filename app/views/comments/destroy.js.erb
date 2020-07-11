@@ -1,0 +1,2 @@
+$(".comment_count_<%= @article.id %>").html("<%= j(render 'articles/comment_count', comments: @article.comments ) %>");
+$(".comment_<%= @article.id %>").html("<%= j(render 'articles/comment', comments: @article.comments ) %>");

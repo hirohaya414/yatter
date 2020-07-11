@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Yatter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/34f3987b2a.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,86 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top">
+      <div class="container">
+        <nav class="nav navbar-brand">
+          <%= link_to 'Yatter', root_path, class: "logo no-underline", style: "color: black;" %>
+        </nav>
+        <nav>
+          <ul class="nav">
+
+            <% if member_signed_in? %>
+              <li><p>ようこそ <%= current_member.name %> さん！</p></li>
+              <li>
+                <%= link_to root_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-home"></i> トップページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to member_path(current_member), class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-user"></i> マイページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to articles_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-book-reader"></i> 記事を読む
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_article_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-pen-nib"></i> 記事を書く
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_member_session_path, method: :delete, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-sign-out-alt"></i> ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to root_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-home"></i> トップページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to about_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-shield-alt"></i> 始めての方はこちら
+                <% end %>
+              </li>
+              <li>
+                <%= link_to articles_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-book-reader"></i> 記事を読む
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_member_registration_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-user-plus"></i> メンバー登録する
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_member_session_path, class: "no-underline", style: "color: black;" do %>
+                <i class="fas fa-sign-in-alt"></i> ログイン
+                <% end %>
+              </li>
+            <% end %>
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+
+      <% flash.each do |key, value| %>
+        <% key = "info" if key == "notice" %>
+        <% key = "danger" if key == "alert" %>
+        <%= content_tag :div, value, class: "alert alert-#{key}" %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+    <footer>
+      <p class="text-center">© 2020 Yatter All Rights Reserved.</p>
+    </footer>
   </body>
 </html>

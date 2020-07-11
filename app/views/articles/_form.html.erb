@@ -1,9 +1,8 @@
 <%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
+    <h2><%= article.errors.count %>件のエラーのため記事が保存できませんでした。</h2>
+      <ul class="error_message">
       <% article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -12,21 +11,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, autofocus: true %>
+    <%= form.label :title %><br />
+    <%= form.text_area :title, size: "1x1", autofocus: true, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :body %><br />
+    <%= form.text_area :body, size: "60x15", class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.number_field :category_id %>
+    <%= form.label :category %><br />
+      <%= form.collection_radio_buttons(:category_id, Category.all, :id, :name) do |category| %>
+        <%= category.label {category.radio_button + category.text} %>
+      <% end %>
   </div>
 
-  <div class="actions">
+  <div class="action">
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,2 +1,53 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<div class="row justify-content-center">
+<div class="col-auto prof">
+<h2><span class="prof-underline">プロフィール編集</span></h2>
+
+<%= form_for(@member) do |f| %>
+
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @member.errors.count %>件のエラーのためメンバーが保存できませんでした。</h2>
+
+      <ul class="error_message">
+      <% @member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :profile_image, 'プロフィール画像' %><br />
+    <%= attachment_image_tag @member, :profile_image, size: "100x100", class: "rounded-circle", fallback: "no_image.jpg"%><br />
+    <%= f.attachment_field :profile_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", size: 50 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :school_year %><br />
+    <%= f.radio_button :school_year, :middle %> 中学生<br />
+    <%= f.radio_button :school_year, :first_year %> 高校１年生<br />
+    <%= f.radio_button :school_year, :second_year %> 高校２年生<br />
+    <%= f.radio_button :school_year, :third_year %> 高校３年生<br />
+    <%= f.radio_button :school_year, :others %> その他
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="action">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
+
+  <div class="text-center field">
+    <%= link_to '戻る', 'javascript:history.back()' %>
+  </div>
+</div>
+</div>

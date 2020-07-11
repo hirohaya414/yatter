@@ -14,3 +14,63 @@
  *= require_self
  */
 @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+	height: 70px
+}
+
+.logo {
+	font-size: 40px;
+	font-family: 'Nothing You Could Do', cursive
+}
+
+ul li {
+	margin-left: 20px
+}
+
+.no-underline {
+	text-decoration:none !important
+}
+
+footer {
+	margin-top: 50px;
+    width: 100%;
+    height: 30px
+}
+
+.field {
+	margin: 10px;
+}
+
+#error_explanation h2 {
+	color: red;
+}
+
+.error_message li {
+	color: red;
+}
+
+.devise-main {
+	padding-top: 50px;
+	display: flex;
+    justify-content: center
+}
+
+.devise-content {
+	width: 500px;
+	padding-left: 70px
+}
+
+.action {
+	margin-bottom: 10px
+}
+
+h2 span {
+	background: linear-gradient(transparent 70%, #c6e0d5 70%)
+}

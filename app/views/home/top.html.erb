@@ -1,2 +1,152 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="main-visual">
+  <div class="main-visual-content">
+    <p class="main-visual-text1">
+    	ここは、
+    </p>
+    <p class="main-visual-text2">
+    	僕らのホームルーム。
+    </p>
+  </div>
+</div>
+
+<main class="clearfix">
+  <div class="headline">
+    <h1 class="text-center headline1">
+  	  <em>Introduction</em>
+    </h1>
+  </div>
+  <div class="intro-visual-content">
+    <div class="intro-visual-box">
+      <p class="visual-text">
+      	休校中、あの子も<br />
+      	同じように悩んでいるかもしれない ––
+      </p>
+      <p class="visual-text">
+        Yatter(ヤッター)とは、あなたが普段の勉強で感じたことを<br />
+        みんなとシェアするアプリケーションです。
+      </p>
+      <p class="visual-text">
+        勉強に関する知識やテクニック、メモを簡単に投稿＆公開することが<br />
+        できます。
+      </p>
+      <p class="visual-text">
+        自分ひとりで勉強しなくてはならない不安 ––<br />
+        そして、問題が理解できない不安 ––
+      </p>
+      <p class="visual-text">
+        いつでもどこでも、勉強を進めてください。<br />
+      </p>
+      <div class="intro-btn">
+        <%= link_to about_path, class: "no-underline", style: "color: #e3b3cd;" do %>
+        <span>もっと見る</span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="intro-visual"></div>
+  </div>
+
+  <div class="headline">
+    <h1 class="text-center headline2">
+  	  <em>Category</em>
+    </h1>
+  </div>
+  <p class="text-center category-text">
+    カテゴリ名をクリックするとカテゴリ別 記事一覧画面に遷移します。
+  </p>
+  <div class="category-visual-content">
+    <div class="category-visual en">
+      <%= link_to articles_path(category_id: 1), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>英語</span></p>
+      <% end %>
+    </div>
+    <div class="category-visual ma">
+      <%= link_to articles_path(category_id: 2), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>数学</span></p>
+      <% end %>
+    </div>
+    <div class="category-visual ja">
+      <%= link_to articles_path(category_id: 3), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>国語</span></p>
+      <% end %>
+    </div>
+    <div class="category-visual sc">
+      <%= link_to articles_path(category_id: 4), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>理科</span></p>
+      <% end %>
+    </div>
+    <div class="category-visual so">
+      <%= link_to articles_path(category_id: 5), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>地理歴史</span></p>
+      <% end %>
+    </div>
+    <div class="category-visual ci">
+      <%= link_to articles_path(category_id: 6), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>公民</spam></p>
+      <% end %>
+    </div>
+    <div class="category-visual mo">
+      <%= link_to articles_path(category_id: 7), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>モチベーションアップ<br />コンテンツ</span></p>
+      <% end %>
+    </div>
+    <div class="category-visual ot">
+      <%= link_to articles_path(category_id: 8), class: "no-underline", style: "color: black;" do %>
+    	  <p><span>その他<span></p>
+      <% end %>
+    </div>
+  </div>
+
+   <div class="headline">
+    <h1 class="text-center headline3">
+  	  <em>Service</em>
+    </h1>
+  </div>
+  <div class="service-visual-content">
+    <div class="service-visual-text">
+      <p class="text-center">さぁ！知識をシェアしよう！</p>
+    </div>
+
+  	<% if member_signed_in? %>
+      <div class="buttons">
+        <div class="button">
+      	  <%= link_to new_article_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>記事を書く</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to articles_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>記事一覧を見る</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to "#", class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>トップへ戻る</span>
+          <% end %>
+        </div>
+      </div>
+  	<% else %>
+      <div class="buttons">
+        <div class="button">
+    	    <%= link_to new_member_registration_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>メンバー登録</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to articles_path, class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>記事一覧を見る</span>
+          <% end %>
+        </div>
+
+        <div class="button">
+          <%= link_to "#", class: "no-underline", style: "color: #82c0cd;" do %>
+            <span>トップへ戻る</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
