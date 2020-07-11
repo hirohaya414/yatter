@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-<div class="col-6 article-content">
+<div class="col-md-10 article-content">
   <span>記事詳細</span>
   <div class="field">
     <p>
@@ -35,18 +35,14 @@
       <div class="favorite_<%= @article.id %>">
         <%= render 'favorite', article: @article %>
       </div>
-      <p>
-        <i class="far fa-comment"></i> <%= @article.comments.count %>
+      <p class="comment_count_<%= @article.id %>">
+        <%= render 'comment_count', comments: @article.comments %>
       </p>
     <% end %>
   </div>
 
-  <div class="comment-index">
-    <h4><%= @article.comments.count %>件のコメント</h4>
-
-    <ol class="comment_<%= @article.id %>">
-      <%= render 'comment', comments: @article.comments %>
-    </ol>
+  <div class="comment-index comment_<%= @article.id %>">
+    <%= render 'comment', comments: @article.comments %>
   </div>
 
   <% if member_signed_in? %>
