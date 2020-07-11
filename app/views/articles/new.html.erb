@@ -4,7 +4,8 @@
 
   <%= render 'form', article: @article %>
 
-  <div class="field">
+  <div class="text-center field">
+	<%= link_to '戻る', 'javascript:history.back()' %> |
 	<%= link_to '記事一覧を見る', articles_path %>
   </div>
 
