@@ -27,8 +27,10 @@
 
   <div class="field">
     <% if member_signed_in? && @article.member.id == current_member.id %>
-      <%= link_to '編集する', edit_article_path(@article) %> |
-      <%= link_to '削除する', @article, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+      <%= link_to '編集する', edit_article_path(@article) %>｜
+      <%= link_to @article, method: :delete, data: { confirm: '本当に削除しますか?' } do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
     <% end %>
 
     <% if member_signed_in? %>
