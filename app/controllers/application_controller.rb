@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :danger, :warning, :info
 
   protected
+  def after_sign_in_path_for(resource)
+  	member_path(resource)
+  end
+
+  def after_sign_out_path_for(resource)
+  	root_path
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :school_year])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :school_year, :profile_image_id, :is_deleted])

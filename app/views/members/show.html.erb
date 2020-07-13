@@ -46,7 +46,7 @@
 <div class="main">
   <div class="content">
     <% @articles.each do |article| %>
-      <div class="box">
+      <div class="card box">
       <%= link_to article, style: "color: black;" do %>
         <div class="article-img">
           <%= attachment_image_tag article.member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
