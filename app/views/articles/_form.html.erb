@@ -1,9 +1,10 @@
 <%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
-    <h2><%= article.errors.count %>件のエラーのため記事が保存できませんでした。</h2>
+    <% messages = article.errors.full_messages.select { |msg| !msg.match?(/\w.+/) } %>
+    <h2><%= messages.count %>件のエラーのため記事が保存できませんでした。</h2>
       <ul class="error_message">
-      <% article.errors.full_messages.each do |message| %>
+      <% messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
