@@ -10,7 +10,7 @@
   <div class="field">
     <p>
       <strong>本文:</strong><br/>
-      <%= @article.body %>
+      <%= safe_join(@article.body.split("\n"),tag(:br)) %>
     </p>
   </div>
   <div class="field">
