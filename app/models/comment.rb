@@ -4,7 +4,5 @@ class Comment < ApplicationRecord
 
   with_options presence: true do
     validates :content
-    validates :article_id
-    validates :member_id
   end
 end

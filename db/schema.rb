@@ -41,30 +41,30 @@ ActiveRecord::Schema.define(version: 2020_07_01_070710) do
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.integer "member_id", null: false
-    t.integer "category_id", null: false
+    t.integer "member_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
-    t.boolean "is_invalid", default: false, null: false
+    t.boolean "is_invalid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false
-    t.integer "member_id", null: false
-    t.integer "article_id", null: false
+    t.integer "member_id"
+    t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "member_id", null: false
-    t.integer "article_id", null: false
+    t.integer "member_id"
+    t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 2020_07_01_070710) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.integer "school_year", limit: 1, default: 0, null: false
+    t.integer "school_year", default: 0
     t.string "profile_image_id"
-    t.boolean "is_deleted", default: false, null: false
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
