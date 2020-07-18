@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="content">
+    <% articles.each do |article| %>
+      <div class="card box">
+      <%= link_to article, style: "color: black;" do %>
+        <div class="article-img">
+          <%= attachment_image_tag article.member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+        </div>
+        <div class="article-info">
+          <span class="article-name"><%= article.member.name %></span>
+          <span class="article-title"><%= article.title %></span>
+          <span class="article-body"><%= article.body %></span>
+          <span class="article-category"><%= article.category.name %></span>
+          <span class="article-favorite"><%= article.favorites.count %>いいね</span>
+          <span class="article-comment"><%= article.comments.count %>コメント</span>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

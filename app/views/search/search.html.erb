@@ -1,0 +1,9 @@
+<p class="article-content">
+	<span class="article-index"><%= @content %>の検索結果(全<%= @records.count %>件)</span>
+</p>
+
+<%= render 'articles/index', articles: @records %>
+
+<div class="text-center actions">
+  <%= link_to '戻る', 'javascript:history.back()' %>
+</div>
