@@ -76,6 +76,7 @@ gem 'devise'
 gem 'enum_help'
 gem 'rails-i18n', '~> 5.1'
 gem 'activeadmin'
+gem 'kaminari', '~> 1.2.1'
 
 gem 'dotenv-rails'
 group :production do

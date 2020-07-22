@@ -5,9 +5,11 @@ class ArticlesController < ApplicationController
   def index
     if params[:category_id]
       @category = Category.find(params[:category_id])
-      @articles = @category.articles
+      @articles_all = @category.articles
+      @articles = @category.articles.page(params[:page]).reverse_order
     else
-      @articles = Article.all
+      @articles_all = Article.all
+      @articles = Article.page(params[:page]).reverse_order
     end
   end
 
