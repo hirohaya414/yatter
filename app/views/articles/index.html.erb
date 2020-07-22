@@ -1,7 +1,7 @@
 <% if params[:category_id] %>
-  <p class="article-content"><span class="article-index">カテゴリ別 記事一覧(全<%= @articles.count %>件)</span></p>
+  <p class="article-content"><span class="article-index">カテゴリ別 記事一覧(全<%= @articles_all.count %>件)</span></p>
 <% else %>
-  <p class="article-content"><span class="article-index">記事一覧(全<%= @articles.count %>件)</span></p>
+  <p class="article-content"><span class="article-index">記事一覧(全<%= @articles_all.count %>件)</span></p>
 <% end %>
 
 <%= render 'index', articles: @articles %>
