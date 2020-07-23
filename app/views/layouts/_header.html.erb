@@ -23,6 +23,11 @@
         <% end %>
       </li>
       <li>
+        <%= link_to members_path, class: "no-underline", style: "color: black;" do %>
+        <i class="fas fa-users"></i> メンバーを見る
+        <% end %>
+      </li>
+      <li>
         <%= link_to destroy_member_session_path, method: :delete, class: "no-underline", style: "color: black;" do %>
         <i class="fas fa-sign-out-alt"></i> ログアウト
         <% end %>
@@ -41,6 +46,11 @@
       <li>
         <%= link_to articles_path, class: "no-underline", style: "color: black;" do %>
         <i class="fas fa-book-reader"></i> 記事を読む
+        <% end %>
+      </li>
+      <li>
+        <%= link_to members_path, class: "no-underline", style: "color: black;" do %>
+        <i class="fas fa-users"></i> メンバーを見る
         <% end %>
       </li>
       <li>
