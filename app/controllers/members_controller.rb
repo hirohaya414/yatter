@@ -9,7 +9,8 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @articles = @member.articles
+    @articles_all = @member.articles
+    @articles = @member.articles.page(params[:page]).reverse_order
   end
 
   def edit
