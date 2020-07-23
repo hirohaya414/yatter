@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     registrations: 'members/registrations'
   }
 
-  resources :members, only: [:edit, :show, :update] do
+  resources :members, except: [:create, :new, :destroy] do
     get :confirm, on: :collection
     patch '/hide' => 'members#hide', on: :member
   end
