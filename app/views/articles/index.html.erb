@@ -5,6 +5,7 @@
 <% end %>
 
 <%= render 'index', articles: @articles %>
+<%= paginate @articles %>
 
 <div class="text-center actions">
   <%= link_to '戻る', 'javascript:history.back()' %> |
