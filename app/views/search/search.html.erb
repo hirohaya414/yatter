@@ -1,8 +1,16 @@
-<p class="article-content">
-	<span class="article-index"><%= @content %>の検索結果(全<%= @records.count %>件)</span>
-</p>
+<% if @model == 'member' %>
+  <p class="article-content">
+	<span class="article-index">メンバー '<%= @content %>'の検索結果(全<%= @records.count %>件)</span>
+  </p>
+  <%= render 'members/index', members: @records %>
 
-<%= render 'articles/index', articles: @records %>
+<% else @model == 'article' %>
+  <p class="article-content">
+	<span class="article-index">記事　'<%= @content %>'の検索結果(全<%= @records.count %>件)</span>
+  </p>
+  <%= render 'articles/index', articles: @records %>
+
+<% end %>
 
 <div class="text-center actions">
   <%= link_to '戻る', 'javascript:history.back()' %>

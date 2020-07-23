@@ -44,3 +44,4 @@
 
 <p class="article-content"><span class="article-index">投稿一覧(全<%= @articles_all.count %>件)</span></p>
 <%= render 'articles/index', articles: @articles %>
+<%= paginate @articles %>

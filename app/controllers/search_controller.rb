@@ -8,7 +8,17 @@ class SearchController < ApplicationController
 
   private
   def search_for(model, content, method)
-    if model == 'article'
+    if model == 'member'
+      if method == 'perfect'
+        Member.where(name: content)
+      elsif method == 'forward'
+        Member.where('name LIKE ?', content+'%')
+      elsif method == 'backward'
+        Member.where('name LIKE ?', '%'+content)
+      else
+        Member.where('name LIKE ?', '%'+content+'%')
+      end
+    elsif model == 'article'
       if method == 'perfect'
         Article.where(title: content)
       elsif method == 'forward'
