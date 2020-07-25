@@ -29,9 +29,9 @@ RSpec.describe "Articleモデルのテスト", type: :model do
     end
   end
   describe "アソシエーションのテスト" do
-    context "Userモデルとの関係" do
+    context "Memberモデルとの関係" do
       it "N:1となっている" do
-        expect(Article.reflect_on_association(:article).macro).to eq :belongs_to
+        expect(Article.reflect_on_association(:member).macro).to eq :belongs_to
       end
     end
   end
