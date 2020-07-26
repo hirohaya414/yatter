@@ -14,11 +14,28 @@
 	padding: 100px
 }
 
-.member-content span {
+.member-underline span {
 	font-size: 30px;
 	background: linear-gradient(transparent 70%, #e4ab5a 70%)
 }
 
-.content > div {
+.member-main {
+    display: flex;
+    justify-content: center
+}
+
+.member-content {
+	padding: 20px;
+	max-width: 700px;
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap
+}
+
+.member-content > div {
 	border: thin solid #e4ab5a;
+	flex-basis:200px;
+	height: 250px;
+	margin: 10px;
+	position: relative
 }
