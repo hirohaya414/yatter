@@ -13,7 +13,7 @@
 	    <% end %>
 	  </div>
 
-	  <div><%= comment.content %></div><br />
+	  <div><%= safe_join(comment.content.split("\n"),tag(:br)) %></div><br />
 	</li>
 	<% end %>
 </ol>
