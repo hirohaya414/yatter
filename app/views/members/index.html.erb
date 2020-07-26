@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
 <div class="col-8">
-  <p class="member-content"><span>メンバー一覧(全<%= @members_all.count %>件)</span></p>
+  <p class="member-underline"><span>メンバー一覧(全<%= @members_all.count %>件)</span></p>
   <%= render 'index', members: @members %>
   <%= paginate @members %>
 
