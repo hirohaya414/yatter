@@ -1,0 +1,11 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <p class="follow-underline"><span>フォロワー(全<%= @members_all.count %>件)</span></p>
+    <%= render '/members/index', members: @members %>
+    <%= paginate @members %>
+
+    <div class="text-center actions">
+      <%= link_to '戻る', 'javascript:history.back()' %>
+    </div>
+  </div>
+</div>

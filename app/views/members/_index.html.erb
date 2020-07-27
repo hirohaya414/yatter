@@ -2,13 +2,24 @@
   <div class="member-content">
     <% members.each do |member| %>
       <div class="card box">
-      <%= link_to member, style: "color: black;" do %>
+      <%= link_to member, class: "no-underline", style: "color: black;" do %>
         <div class="article-img">
           <%= attachment_image_tag member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
         </div>
         <div class="article-info">
           <span class="article-name"><%= member.name %></span>
-          <span class="member-article">投稿数：<%= member.articles.count %></span>
+          <span class="member-school_year"><%= member.school_year_i18n %></span><br />
+          <span class="member-article">投稿数：<%= member.articles.count %></span><br />
+          <span class="member-article">フォロー中：<%= member.follower.count %></span><br />
+          <span class="member-article">フォロワー：<%= member.followed.count %></span><br />
+          <!-- フォローボタン -->
+          <% if current_member != member %>
+            <% if current_member.following?(member) %>
+              <%= link_to 'フォロー解除', member_relationships_path(member), method: :delete, class: "btn btn-unfollow no-underline" %>
+            <% else %>
+              <%= link_to 'フォロー', member_relationships_path(member), method: :post, class: "btn btn-follow no-underline" %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
       </div>

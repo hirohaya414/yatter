@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :members, except: [:create, :new, :destroy] do
     get :confirm, on: :collection
     patch '/hide' => 'members#hide', on: :member
+    resource :relationships, only: [:create, :destroy]
+    get 'follows' => 'relationships#follower', as: 'follows'
+    get 'followers' => 'relationships#followed', as: 'followers'
   end
 
   resources :articles do
