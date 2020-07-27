@@ -48,18 +48,14 @@ footer {
 	margin: 10px;
 }
 
-#error_explanation h2 {
-	color: red;
-}
-
-.error_message li {
+h3, .error_message li {
 	color: red;
 }
 
 .devise-main {
 	padding-top: 50px;
 	display: flex;
-    justify-content: center
+  justify-content: center
 }
 
 .devise-content {
