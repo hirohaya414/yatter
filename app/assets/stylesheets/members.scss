@@ -33,9 +33,24 @@
 }
 
 .member-content > div {
+    box-shadow: 2px 2px 4px;
 	border: thin solid #e4ab5a;
 	flex-basis:200px;
-	height: 250px;
+	height: 260px;
 	margin: 10px;
 	position: relative
+}
+
+.btn {
+	width: 200px
+}
+
+.btn-unfollow {
+	border: thin solid #e4ab5a !important;
+	color: #e4ab5a !important
+}
+
+.btn-follow {
+	background-color: #e4ab5a !important;
+	color: #fff !important
 }

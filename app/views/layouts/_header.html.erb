@@ -28,6 +28,16 @@
         <% end %>
       </li>
       <li>
+        <%= link_to member_follows_path(current_member), class: "no-underline", style: "color: black;" do %>
+        <i class="fas fa-user-circle"></i> フォロー中
+        <% end %>
+      </li>
+      <li>
+        <%= link_to member_followers_path(current_member), class: "no-underline", style: "color: black;" do %>
+        <i class="far fa-user-circle"></i> フォロワー
+        <% end %>
+      </li>
+      <li>
         <%= link_to destroy_member_session_path, method: :delete, class: "no-underline", style: "color: black;" do %>
         <i class="fas fa-sign-out-alt"></i> ログアウト
         <% end %>
