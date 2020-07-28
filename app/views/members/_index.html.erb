@@ -14,16 +14,16 @@
           <span class="member-article">フォロワー：<%= member.followed.count %></span><br />
           <!-- ログインしていたらフォローボタン出現 -->
           <% if member_signed_in? %>
+            <!-- 本人のメンバーカードには新規投稿リンク設置 -->
+            <% if member == current_member %>
+              <%= link_to '記事を書く', new_article_path, class: "btn btn-follow no-underline" %>
             <!-- フォローボタン -->
-            <% unless member == current.member %>
+            <% else %>
               <% if current_member.following?(member) %>
                 <%= link_to 'フォロー解除', member_relationships_path(member), method: :delete, class: "btn btn-unfollow no-underline" %>
               <% else %>
                 <%= link_to 'フォロー', member_relationships_path(member), method: :post, class: "btn btn-follow no-underline" %>
               <% end %>
-            <!-- 本人のメンバーカードには新規投稿リンク設置 -->
-            <% else %>
-              <%= link_to '記事を書く', new_article_path, class: "btn btn-follow no-underline" %>
             <% end %>
           <!-- ログインしていない場合はログインを促す -->
           <% else %>
