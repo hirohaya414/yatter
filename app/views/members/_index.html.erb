@@ -12,13 +12,22 @@
           <span class="member-article">投稿数：<%= member.articles.count %></span><br />
           <span class="member-article">フォロー中：<%= member.follower.count %></span><br />
           <span class="member-article">フォロワー：<%= member.followed.count %></span><br />
-          <!-- フォローボタン -->
-          <% if current_member != member %>
-            <% if current_member.following?(member) %>
-              <%= link_to 'フォロー解除', member_relationships_path(member), method: :delete, class: "btn btn-unfollow no-underline" %>
+          <!-- ログインしていたらフォローボタン出現 -->
+          <% if member_signed_in? %>
+            <!-- フォローボタン -->
+            <% unless member == current.member %>
+              <% if current_member.following?(member) %>
+                <%= link_to 'フォロー解除', member_relationships_path(member), method: :delete, class: "btn btn-unfollow no-underline" %>
+              <% else %>
+                <%= link_to 'フォロー', member_relationships_path(member), method: :post, class: "btn btn-follow no-underline" %>
+              <% end %>
+            <!-- 本人のメンバーカードには新規投稿リンク設置 -->
             <% else %>
-              <%= link_to 'フォロー', member_relationships_path(member), method: :post, class: "btn btn-follow no-underline" %>
+              <%= link_to '記事を書く', new_article_path, class: "btn btn-follow no-underline" %>
             <% end %>
+          <!-- ログインしていない場合はログインを促す -->
+          <% else %>
+            <%= link_to 'ログインしてフォロー', new_member_session_path, class: "btn btn-follow no-underline" %>
           <% end %>
         </div>
       <% end %>
