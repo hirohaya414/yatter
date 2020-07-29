@@ -1,19 +1,21 @@
 <h4><%= comments.count %>件のコメント</h4>
 <ol>
-	<% comments.each do |comment| %>
+  <% comments.each do |comment| %>
 	<li>
 	  <div>
 	    <%= attachment_image_tag comment.member, :profile_image, size: "50x50", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
 	    <%= comment.member.name %>
-	    <%= l comment.created_at %>
-	    <% if comment.member == current_member %>
-	      <%= link_to article_comments_path(comment), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' } do %>
-	        <i class="fas fa-trash-alt"></i>
+	    <div class="float-right">
+	      <%= l comment.created_at %>
+	      <% if comment.member == current_member %>
+	        <%= link_to article_comments_path(comment), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' } do %>
+	          <i class="fas fa-trash-alt"></i>
+	        <% end %>
 	      <% end %>
-	    <% end %>
+	    </div>
 	  </div>
 
 	  <div><%= safe_join(comment.content.split("\n"),tag(:br)) %></div><br />
 	</li>
-	<% end %>
+  <% end %>
 </ol>

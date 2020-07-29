@@ -1,11 +1,11 @@
 <div class="row justify-content-center">
-<div class="col-8 article-content">
-  <span>記事編集</span>
+  <div class="col-8 article-content">
+    <span>記事編集</span>
 
-  <%= render 'form', articles: @articles %>
+    <%= render 'form', article: @article %>
 
-  <div class="field">
-    <%= link_to '戻る', 'javascript:history.back()' %>
+    <div class="text-center">
+      <%= link_to '戻る', 'javascript:history.back()' %>
+    </div>
   </div>
-</div>
 </div>
