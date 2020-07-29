@@ -1,12 +1,13 @@
 <div class="row justify-content-center">
-<div class="col-8">
-  <p class="member-underline"><span>メンバー一覧(全<%= @members_all.count %>件)</span></p>
-  <%= render 'index', members: @members %>
-  <%= paginate @members %>
+  <div class="col-8">
+    <p class="member-underline">
+      <span>メンバー一覧(全<%= @members_all.count %>件)</span>
+    </p>
+    <%= render 'index', members: @members %>
+    <%= paginate @members %>
 
-  <div class="text-center actions">
-    <%= link_to '戻る', 'javascript:history.back()' %> |
-    <%= link_to '記事を書く', new_article_path %>
+    <div class="text-center">
+      <%= link_to '戻る', 'javascript:history.back()' %>
+    </div>
   </div>
-</div>
 </div>

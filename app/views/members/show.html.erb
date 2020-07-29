@@ -1,47 +1,49 @@
 <div class="row justify-content-center">
-<div class="col-auto prof">
-  <h2><span class="prof-underline">プロフィール情報</span></h2>
+  <div class="col-auto prof">
+    <h2><span class="prof-underline">プロフィール情報</span></h2>
 
-    <div class="field">
-    	プロフィール画像<br />
-  	<%= attachment_image_tag @member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
-    </div>
+    <div class="card my-card">
+      <div class="field">
+      	プロフィール画像：<br />
+        <div class="my-img">
+    	    <%= attachment_image_tag @member, :profile_image, size: "100x100", format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg" %>
+        </div>
+      </div>
+      <div class="my-info">
+        <div class="field">
+          名前：<br />
+          <%= @member.name %>
+        </div>
 
-    <div class="field">
-      名前<br />
-      <%= @member.name %>
-    </div>
+        <div class="field">
+          学年：<br />
+          <%= @member.school_year_i18n %>
+        </div>
 
-    <div class="field">
-      学年<br />
-      <%= @member.school_year_i18n %>
+        <% if member_signed_in? && @member.id == current_member.id %>
+        <div class="field">
+          メールアドレス：<br />
+          <%= @member.email %>
+        </div>
+        <% end %>
+      </div>
     </div>
 
     <% if member_signed_in? && @member.id == current_member.id %>
-    <div class="field">
-      メールアドレス<br />
-      <%= @member.email %>
-    </div>
-    <% end %>
-
-  <div class="row justify-content-center">
-    <div class="col-auto buttons">
-      <%= link_to '戻る', 'javascript:history.back()' %> |
-      <%= link_to 'トップページへ', root_path %><br />
-    </div>
-  </div>
-
-  <% if member_signed_in? && @member.id == current_member.id %>
-    <div class="row justify-content-center">
-      <div class="col-auto btn">
+      <div class="text-center">
         <%= link_to '編集する', edit_member_path(@member) %> |
         <%= link_to '退会したい', confirm_members_path %>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>
 
-<p class="article-content"><span class="article-index">投稿一覧(全<%= @articles_all.count %>件)</span></p>
+<div class="article-content">
+  <span class="article-index">投稿一覧(全<%= @articles_all.count %>件)</span>
+</div>
 <%= render 'articles/index', articles: @articles %>
 <%= paginate @articles %>
+
+<div class="text-center">
+  <%= link_to '戻る', 'javascript:history.back()' %>
+</div>
