@@ -7,7 +7,6 @@
 <%= render 'index', articles: @articles %>
 <%= paginate @articles %>
 
-<div class="text-center actions">
-  <%= link_to '戻る', 'javascript:history.back()' %> |
-  <%= link_to '記事を書く', new_article_path %>
+<div class="text-center">
+  <%= link_to '戻る', 'javascript:history.back()' %>
 </div>

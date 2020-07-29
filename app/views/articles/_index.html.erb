@@ -11,8 +11,15 @@
           <span class="article-title"><%= article.title %></span>
           <span class="article-body"><%= article.body %></span>
           <span class="article-category"><%= article.category.name %></span>
-          <span class="article-favorite"><%= article.favorites.count %>いいね</span>
-          <span class="article-comment"><%= article.comments.count %>コメント</span>
+          <span class="article-favorite">
+            <% if article.favorites.count > 0 %>
+              <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i> <%= article.favorites.count %>
+            <% else %>
+              <i class="far fa-heart" aria-hidden="true"></i> <%= article.favorites.count %>
+            <% end %>
+          </span>
+
+          <span class="article-comment"><i class="far fa-comment"></i> <%= article.comments.count %></span>
         </div>
       <% end %>
       </div>

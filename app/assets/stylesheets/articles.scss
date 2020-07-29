@@ -29,6 +29,7 @@
 }
 
 .content > div {
+    box-shadow: 2px 2px 4px;
 	border: thin solid #c2d3ed;
 	flex-basis:200px;
 	height: 250px;
@@ -77,7 +78,7 @@
 	text-overflow: ellipsis
 }
 
-.actions {
-	width: 330px;
-	margin: 0 auto
+table {
+	border-bottom: thin solid #c2d3ed;
+	margin: 50px 0
 }
