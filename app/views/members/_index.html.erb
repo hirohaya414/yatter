@@ -16,7 +16,9 @@
           <% if member_signed_in? %>
             <!-- 本人のメンバーカードには新規投稿リンク設置 -->
             <% if member == current_member %>
-              <%= link_to '記事を書く', new_article_path, class: "btn btn-follow no-underline" %>
+              <%= link_to edit_member_path(member), class: "btn btn-follow" do %>
+                <i class="fas fa-wrench"></i>
+              <% end %>
             <!-- フォローボタン -->
             <% else %>
               <% if current_member.following?(member) %>
