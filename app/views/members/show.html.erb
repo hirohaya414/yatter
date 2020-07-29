@@ -11,19 +11,28 @@
       </div>
       <div class="my-info">
         <div class="field">
-          名前：<br />
-          <%= @member.name %>
+          名前：<%= @member.name %>
         </div>
 
         <div class="field">
-          学年：<br />
-          <%= @member.school_year_i18n %>
+          学年：<%= @member.school_year_i18n %>
+        </div>
+
+        <div class="field">
+          投稿数：<%= @member.articles.count %>
+        </div>
+
+        <div class="field">
+          フォロー中：<%= @member.follower.count %>
+        </div>
+
+        <div class="field">
+          フォロワー：<%= @member.followed.count %>
         </div>
 
         <% if member_signed_in? && @member.id == current_member.id %>
         <div class="field">
-          メールアドレス：<br />
-          <%= @member.email %>
+          メールアドレス：<%= @member.email %>
         </div>
         <% end %>
       </div>
