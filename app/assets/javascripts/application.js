@@ -37,6 +37,8 @@ var scrollAnimationFunc = function() {
     var triggerMargin = 100;
     if (window.innerHeight > scrollAnimationElm[i].getBoundingClientRect().top + triggerMargin) {
       scrollAnimationElm[i].classList.add('show');
+    } else {
+    	scrollAnimationElm[i].classList.remove('show');
     }
   }
 }
