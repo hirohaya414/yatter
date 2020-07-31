@@ -15,24 +15,27 @@
 .main-visual-content {
 	display: flex;
 	flex-direction: row-reverse;
-	align-items: flex-start
+	align-items: flex-start;
+	transition: all 1s ease-in-out 1s;
+	transform: translate(-42%)
 }
 
-.main-visual-text1 {
+.main-visual-content.show {
+	transform: none
+}
+
+.main-visual-text {
 	-ms-writing-mode: tb-rl;
 	writing-mode: vertical-rl;
 	font-size: 40px;
 	font-family: serif;
 	background-color: #fff;
-	margin-left: 10px
+	margin-left: 10px;
+	text-indent: 10px
 }
 
-.main-visual-text2 {
-	-ms-writing-mode: tb-rl;
-	writing-mode: vertical-rl;
-	font-size: 40px;
-	font-family: serif;
-	background-color: #fff
+.main-visual-text:last-child {
+	margin-left: 10px
 }
 
 .visual-text {
@@ -43,7 +46,7 @@
 	margin: 100px
 }
 
-.headline1 em {
+.in em {
 	background: linear-gradient(transparent 70%, #e3b3cd 70%)
 }
 
@@ -57,7 +60,21 @@
 	margin: 10px
 }
 
+.visual-text {
+    opacity: 0;
+	transition: all 1.2s;
+	transform: translate(10%)
+}
+
+.visual-text.show {
+	opacity: 1;
+	transform: none
+}
+
 .intro-btn {
+	opacity: 0;
+	transition: all 1.2s;
+	transform: translate(10%);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -68,9 +85,23 @@
 	border: thin solid #e3b3cd
 }
 
+.intro-btn.show {
+	opacity: 1;
+	transform: none
+}
+
+.intro-btn:hover {
+	background-color: #e3b3cd;
+	transform: scale(1.1)
+}
+
 .intro-btn span {
 	font-family: serif;
 	font-size: 20px
+}
+
+.intro-btn span:hover {
+	color: #fff
 }
 
 .intro-visual {
@@ -79,10 +110,18 @@
 	margin: 10px;
 	background-image: image-url("image2.jpg");
 	background-size: cover;
-	background-position: center
+	background-position: center;
+	opacity: 0;
+	transition: all 1.2s;
+	transform: translate(10%)
 }
 
-.headline2 em {
+.intro-visual.show {
+	opacity: 1;
+	transform: none
+}
+
+.ca em {
 	background: linear-gradient(transparent 70%, #f8e352 70%)
 }
 
@@ -108,7 +147,19 @@
 	background-position: center;
 	display: flex;
 	flex-direction: row-reverse;
-	align-items: flex-start
+	align-items: flex-start;
+	opacity: 0;
+	transition: all 1.2s;
+	transform: rotateY(180deg);
+}
+
+.category-visual.show {
+	opacity: 1;
+	transform: none
+}
+
+.category-visual:hover {
+	transform: scale(1.1)
 }
 
 .category-visual p {
@@ -154,7 +205,7 @@ p span {
 	background-image: image-url("image10.jpg");
 }
 
-.headline3 em {
+.se em {
 	background: linear-gradient(transparent 70%, #82c0cd 70%)
 }
 
@@ -162,7 +213,15 @@ p span {
     height: 100px;
     font-size: 30px;
     font-family: serif;
-    color: black
+    color: black;
+    opacity: 0;
+	transition: all 1.2s;
+	transform: translate(10%)
+}
+
+.service-visual-text p.show {
+	opacity: 1;
+	transform: none
 }
 
 .buttons {
@@ -178,12 +237,29 @@ p span {
 	min-height: 50px;
 	padding: 10px;
 	margin: 10px auto 150px;
-	border: thin solid #82c0cd
+	border: thin solid #82c0cd;
+	opacity: 0;
+	transition: all 1.2s;
+	transform: translate(10%)
+}
+
+.button.show {
+	opacity: 1;
+	transform: none
+}
+
+.button:hover {
+	background-color: #82c0cd;
+	transform: scale(1.1)
 }
 
 .button span {
 	font-family: serif;
 	font-size: 20px
+}
+
+.button span:hover {
+	color: #fff
 }
 
 .about-visual {
@@ -192,11 +268,26 @@ p span {
 	margin: 100px 0;
 	background-image: image-url("image11.jpg");
 	background-size: cover;
-	background-position: center
+	background-position: center;
+	opacity: 0;
+	transition: all 1.2s;
+	transform: translateY(10%)
+}
+
+.about-visual.show {
+	opacity: 1;
+	transform: none
 }
 
 .about-text p {
 	margin: 50px 0;
-	font-family: serif
+	font-family: serif;
+	opacity: 0;
+	transition: all 1.2s;
+	transform: translateY(10%)
 }
 
+.about-text p.show {
+	opacity: 1;
+	transform: none
+}

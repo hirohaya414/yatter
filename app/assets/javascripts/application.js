@@ -18,10 +18,28 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// ハンバーガーアイコン
 $(function() {
   $('.menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
     $('.sp-menu').fadeToggle();
     event.preventDefault();
   });
+});
+
+// topとaboutページの各要素はスクロールすると出現する
+$(function() {
+var scrollAnimationElm = document.querySelectorAll(
+	'.main-visual-content, em, .visual-text, .intro-btn, .intro-visual, .category-visual, .service-visual-text p, .button, .about-text p, .about-visual'
+);
+var scrollAnimationFunc = function() {
+  for(var i = 0; i < scrollAnimationElm.length; i++) {
+    var triggerMargin = 100;
+    if (window.innerHeight > scrollAnimationElm[i].getBoundingClientRect().top + triggerMargin) {
+      scrollAnimationElm[i].classList.add('show');
+    }
+  }
+}
+window.addEventListener('load', scrollAnimationFunc);
+window.addEventListener('scroll', scrollAnimationFunc);
 });
