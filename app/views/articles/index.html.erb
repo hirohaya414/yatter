@@ -1,12 +1,16 @@
-<% if params[:category_id] %>
-  <p class="article-content"><span class="article-index">カテゴリ別 記事一覧(全<%= @articles_all.count %>件)</span></p>
-<% else %>
-  <p class="article-content"><span class="article-index">記事一覧(全<%= @articles_all.count %>件)</span></p>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-8">
+	<% if params[:category_id] %>
+	  <span class="article-underline"><%= @category.name %> 記事一覧(全<%= @articles_all.count %>件)</span>
+	<% else %>
+	  <span class="article-underline">記事一覧(全<%= @articles_all.count %>件)</span>
+	<% end %>
 
-<%= render 'index', articles: @articles %>
-<%= paginate @articles %>
+	<%= render 'index', articles: @articles %>
+	<%= paginate @articles %>
 
-<div class="text-center">
-  <%= link_to '戻る', 'javascript:history.back()' %>
+	<div class="text-center">
+	  <%= link_to '戻る', 'javascript:history.back()' %>
+	</div>
+  </div>
 </div>

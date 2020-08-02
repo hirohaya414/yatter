@@ -1,49 +1,51 @@
-<div class="devise-main">
-<div class="devise-content">
+<div class="row justify-content-center">
+  <div class="col-6">
+    <span class="devise-underline">メンバー登録</span>
 
-  <h2><span>メンバー登録<span></h2>
+    <div class="card my-card">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field">
+          <%= f.label :name %><em>(ニックネーム可)</em><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :name %><em>(ニックネーム可)</em><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <div class="field">
+          <%= f.label :school_year %><br />
+          <%= f.radio_button :school_year, :middle %> 中学生<br />
+          <%= f.radio_button :school_year, :first_year %> 高校１年生<br />
+          <%= f.radio_button :school_year, :second_year %> 高校２年生<br />
+          <%= f.radio_button :school_year, :third_year %> 高校３年生<br />
+          <%= f.radio_button :school_year, :others %> その他
+        </div>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上で設定してください)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.submit "登録する" %>
+        </div>
+      <% end %>
     </div>
 
-    <div class="field">
-      <%= f.label :school_year %><br />
-      <%= f.radio_button :school_year, :middle %> 中学生<br />
-      <%= f.radio_button :school_year, :first_year %> 高校１年生<br />
-      <%= f.radio_button :school_year, :second_year %> 高校２年生<br />
-      <%= f.radio_button :school_year, :third_year %> 高校３年生<br />
-      <%= f.radio_button :school_year, :others %> その他
+    <div class="text-center">
+      <%= render "devise/shared/links" %>
     </div>
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> 文字以上で設定してください)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="action">
-      <%= f.submit "登録する" %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-
-</div>
+  </div>
 </div>
