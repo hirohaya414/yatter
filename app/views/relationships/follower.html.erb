@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="col-8">
-    <p class="follow-underline"><span>フォロー中(全<%= @members_all.count %>件)</span></p>
+    <span class="follow-underline">フォロー中(全<%= @members_all.count %>件)</span>
     <%= render '/members/index', members: @members %>
     <%= paginate @members %>
 
