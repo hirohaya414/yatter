@@ -5,7 +5,7 @@
 	  <%= render 'members/index', members: @records %>
 
 	<% else %>
-	  <span class="article-underline">記事　'<%= @content %>'の検索結果(全<%= @records.count %>件)</span>
+	  <span class="article-underline">記事 '<%= @content %>'の検索結果(全<%= @records.count %>件)</span>
 	  <%= render 'articles/index', articles: @records %>
 	<% end %>
 
