@@ -20,10 +20,10 @@
 ## :art: 設計書
 
 ### :nut_and_bolt: 開発環境
-Vagrant
-VirtualBox
-Ruby 2.5.7
-Rails 5.2.4.3
+Vagrant  
+VirtualBox  
+Ruby 2.5.7  
+Rails 5.2.4.3  
 AWS(EC2,RDS)
 
 ### :wrench: 機能一覧
